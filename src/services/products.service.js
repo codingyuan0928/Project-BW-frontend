@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const API_URL = "https://backend-app-igahudbo5a-de.a.run.app/api/products";
-const auth = JSON.parse(localStorage.getItem("user")).token;
+const user = localStorage.getItem("user");
+const auth = user ? JSON.parse(user).token : null;
 
 class ProductService {
   post(imgUrl, title, categories, description, inventory, price, shopname) {

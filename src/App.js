@@ -10,26 +10,23 @@ import UpdateProductsComponent from "./components/update-products-component";
 import ShoppingCartComponent from "./components/shopping-cart-component";
 import Modal from "./components/modal";
 import productsService from "./services/products.service";
-
 const App = () => {
-  const [modalOpenIndex, setModalOpenIndex] = useState(null);
+  let [modalOpenIndex, setModalOpenIndex] = useState(null);
   let [identity, setIdentity] = useState("visitor");
   let [currentUser, setCurrentUser] = useState({});
-  const [avatar, setAvatar] = useState(null);
+  let [avatar, setAvatar] = useState(null);
   let [input, setInput] = useState("");
   let [data, setData] = useState(null);
-  let [page, setPage] = useState(1); //去解決增加相片的問題
-  let [currentSearch, setCurrentSearch] = useState(""); //解決搜尋紀錄影響input的問題
-  const [quantity, setQuantity] = useState(1);
-  const auth = JSON.parse(localStorage.getItem("user")).token;
-  const initialUrl =
-    "https://weak-gray-bison-hat.cyclic.app/api/products?page=1&per_page=15";
-  const searchUrl = `https://weak-gray-bison-hat.cyclic.app/api/products/findByName/${currentSearch}?page=1&per_page=15`;
-  const [hasMoreProducts, setHasMoreProducts] = useState(true);
+  let [page, setPage] = useState(1);
+  let [currentSearch, setCurrentSearch] = useState("");
+  let [quantity, setQuantity] = useState(1);
+  let [hasMoreProducts, setHasMoreProducts] = useState(true);
+  const initialUrl = "http://localhost:8080/api/products?page=1&per_page=15";
+  const searchUrl = `http://localhost:8080/api/products/findByName/${currentSearch}?page=1&per_page=15`;
 
   // fetch data from restful api
-
   const search = async (url, callback) => {
+    setData(null);
     try {
       console.log("觸發1次");
       setPage(2);
@@ -59,11 +56,10 @@ const App = () => {
   const moreProducts = async () => {
     console.log("button clicked");
     let newUrl;
-
     if (input === "") {
-      newUrl = `https://weak-gray-bison-hat.cyclic.app/api/products?page=${page}&per_page=15`;
+      newUrl = `http://localhost:8080/api/products?page=${page}&per_page=15`;
     } else {
-      newUrl = `https://weak-gray-bison-hat.cyclic.app/api/products/findByName/${currentSearch}?page=${page}&per_page=15`;
+      newUrl = `http://localhost:8080/api/products/findByName/${currentSearch}?page=${page}&per_page=15`;
     }
     setPage(page + 1);
     try {
@@ -95,7 +91,8 @@ const App = () => {
 
   //點選不同種類商品
   const handleDifCatProducts = (category) => {
-    const catUrl = `https://weak-gray-bison-hat.cyclic.app/api/products/${category}?page=1&per_page=15`;
+    setData(null);
+    const catUrl = `http://localhost:8080/api/products/${category}?page=1&per_page=15`;
     search(catUrl, (filteredData) => {
       setData(filteredData);
     });
@@ -164,15 +161,8 @@ const App = () => {
             identity={identity}
           />
           <HomeComponent
-            currentUser={currentUser}
-            setCurrentUser={setCurrentUser}
-            search={search}
-            initialUrl={initialUrl}
-            currentSearch={currentSearch}
-            searchUrl={searchUrl}
             moreProducts={moreProducts}
             data={data}
-            setData={setData}
             modalOpenIndex={modalOpenIndex}
             setModalOpenIndex={setModalOpenIndex}
             handleDifCatProducts={handleDifCatProducts}
@@ -181,11 +171,9 @@ const App = () => {
         </Route>
         <Route path="/register" exact>
           <RegisterComponent
-            identity={identity}
             setIdentity={setIdentity}
             currentUser={currentUser}
             setCurrentUser={setCurrentUser}
-            avatar={avatar}
             setAvatar={setAvatar}
           />
         </Route>
@@ -193,33 +181,17 @@ const App = () => {
           <LoginComponent
             currentUser={currentUser}
             setCurrentUser={setCurrentUser}
-            avatar={avatar}
-            setAvatar={setAvatar}
-            identity={identity}
             setIdentity={setIdentity}
           />
         </Route>
         <Route path="/profile" exact>
-          <ProfileComponent
-            identity={identity}
-            currentUser={currentUser}
-            setCurrentUser={setCurrentUser}
-          />
+          <ProfileComponent identity={identity} currentUser={currentUser} />
         </Route>
         <Route path="/updateProducts">
-          <UpdateProductsComponent
-            currentUser={currentUser}
-            setCurrentUser={setCurrentUser}
-          />
+          <UpdateProductsComponent currentUser={currentUser} />
         </Route>
         <Route path="/shoppingCart">
-          <ShoppingCartComponent
-            currentUser={currentUser}
-            setCurrentUser={setCurrentUser}
-            quantity={quantity}
-            setQuantity={setQuantity}
-            handleQuantityChange={handleQuantityChange}
-          />
+          <ShoppingCartComponent currentUser={currentUser} />
         </Route>
       </Switch>
       <Footer />

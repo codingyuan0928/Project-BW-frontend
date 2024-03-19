@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://weak-gray-bison-hat.cyclic.app/api/user";
+const API_URL = "https://backend-app-igahudbo5a-de.a.run.app/api/user";
 
 class AuthService {
   login(email, password) {

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+
 const API_URL = "https://backend-app-igahudbo5a-de.a.run.app/api/products";
 const auth = JSON.parse(localStorage.getItem("user")).token;
 

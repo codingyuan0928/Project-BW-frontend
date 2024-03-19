@@ -21,8 +21,9 @@ const App = () => {
   let [currentSearch, setCurrentSearch] = useState("");
   let [quantity, setQuantity] = useState(1);
   let [hasMoreProducts, setHasMoreProducts] = useState(true);
-  const initialUrl = "http://localhost:8080/api/products?page=1&per_page=15";
-  const searchUrl = `http://localhost:8080/api/products/findByName/${currentSearch}?page=1&per_page=15`;
+  const initialUrl =
+    "https://backend-app-igahudbo5a-de.a.run.app/api/products?page=1&per_page=15";
+  const searchUrl = `https://backend-app-igahudbo5a-de.a.run.app/api/products/findByName/${currentSearch}?page=1&per_page=15`;
 
   // fetch data from restful api
   const search = async (url, callback) => {
@@ -57,9 +58,9 @@ const App = () => {
     console.log("button clicked");
     let newUrl;
     if (input === "") {
-      newUrl = `http://localhost:8080/api/products?page=${page}&per_page=15`;
+      newUrl = `https://backend-app-igahudbo5a-de.a.run.app/api/products?page=${page}&per_page=15`;
     } else {
-      newUrl = `http://localhost:8080/api/products/findByName/${currentSearch}?page=${page}&per_page=15`;
+      newUrl = `https://backend-app-igahudbo5a-de.a.run.app/api/products/findByName/${currentSearch}?page=${page}&per_page=15`;
     }
     setPage(page + 1);
     try {
@@ -92,7 +93,7 @@ const App = () => {
   //點選不同種類商品
   const handleDifCatProducts = (category) => {
     setData(null);
-    const catUrl = `http://localhost:8080/api/products/${category}?page=1&per_page=15`;
+    const catUrl = `https://backend-app-igahudbo5a-de.a.run.app/api/products/${category}?page=1&per_page=15`;
     search(catUrl, (filteredData) => {
       setData(filteredData);
     });

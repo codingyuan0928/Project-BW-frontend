@@ -2,7 +2,9 @@ import axios from "axios";
 
 const API_URL = "https://backend-app-igahudbo5a-de.a.run.app/api/products";
 const user = localStorage.getItem("user");
-const auth = user ? JSON.parse(user).token : null;
+const auth = user
+  ? JSON.parse(user).token
+  : "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWI5MjQ1Mjc5ZjMwODlhYTMyNzhmMzgiLCJlbWFpbCI6Imd1ZXN0MDAxQGZha2UuY29tIiwiaWF0IjoxNzA2NjMyMjk3fQ.AXIP_XZJgsQTYYuFa7TuXQMj-2VV1O-acnf9HlaNs1E";
 
 class ProductService {
   post(imgUrl, title, categories, description, inventory, price, shopname) {

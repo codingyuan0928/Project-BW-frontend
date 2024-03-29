@@ -9,7 +9,7 @@
   margin: 0rem;
   background-color: #fdf8f2;
   padding: 2rem 0rem 1rem 2rem;
-
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   div {
     color: #9f7867;
   }
@@ -19,6 +19,7 @@
     align-items: flex-end;
     .nav-title {
       font-size: 2.2rem;
+      font-weight: 800;
       position: relative;
       top: 0rem;
       transform: translateY(-15%);
@@ -41,24 +42,25 @@
       margin-right: 1.5rem;
       .input-group {
         .form-controls {
-          border: 3.5px solid rgba(255, 255, 255, 0.95);
+          border: 3.5px solid #9f7867;
           width: 5vw;
           transition: width 0.4s ease-in-out;
           border-radius: 100px;
-          background-color: rgba(0, 0, 0, 0.35);
-          color: white;
+
+          color: #9f7867;
           padding-left: 1.25rem;
           &::placeholder {
             opacity: 0;
             transition: opacity 0.2s ease-in-out;
           }
           &:focus {
-            border: 3px solid rgba(255, 255, 255, 0.95);
+            border: 3px solid #9f7867;
+            outline: none;
             width: 15vw;
           }
           &:focus::placeholder {
             opacity: 1;
-            color: rgba(255, 255, 255, 0.8);
+            color: #9f7867;
             font-size: 1rem;
           }
           &::-webkit-search-cancel-button {
@@ -70,8 +72,8 @@
           cursor: pointer;
           color: white;
           border-left: 3.5px solid transparent;
-          border: 3.5px solid white;
-          background-color: rgba(0, 0, 0, 0.35);
+          border: 3.5px solid #9f7867;
+          background-color: #9f7867;
         }
       }
     }
@@ -81,6 +83,7 @@
       position: relative;
       #login {
         position: relative;
+        font-weight: 700;
         top: 0.85rem;
       }
       .nav-link {
@@ -150,6 +153,7 @@
               height: 8vw;
               width: 8vw;
               background-color: gray;
+              color: white;
             }
             img {
               width: 100%;
@@ -187,7 +191,6 @@
             opacity: 1;
           }
           .avatar-area {
-            // background-color: aqua;
             border-radius: 180px;
             min-width: 8vw;
             height: 8vw;
@@ -206,6 +209,7 @@
               height: 8vw;
               width: 8vw;
               background-color: gray;
+              color: white;
             }
           }
           .seller-info {

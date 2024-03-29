@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import LoadingC from "./Loading-component";
 
 const ProductDisplayComponent = (props) => {
   const { data, setModalOpenIndex } = props;
-
+  const [hoveredIndex, setHoveredIndex] = useState(false);
   if (!data.data) {
     return <LoadingC />;
   }
@@ -18,6 +18,12 @@ const ProductDisplayComponent = (props) => {
             onClick={() => {
               setModalOpenIndex(index);
               document.body.style.overflow = "hidden";
+            }}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            style={{
+              opacity: hoveredIndex === index ? 0.5 : 1,
+              transition: "opacity 0.3s ease",
             }}
           >
             <img src={product.imgUrl} alt="" />

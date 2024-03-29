@@ -76,7 +76,7 @@ const NavBar = (props) => {
       <div className="navBrand">
         <div className="nav-title" onClick={() => resetPage()}>
           <Link to="/" className="a">
-            北威購物
+            Best Way
           </Link>
         </div>
       </div>

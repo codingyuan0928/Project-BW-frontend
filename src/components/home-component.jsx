@@ -40,44 +40,24 @@ const HomeComponent = (props) => {
         <div className="carousel-inner">
           <div className="carousel-item active">
             <img
-              src={process.env.PUBLIC_URL + "/pictures/nikes.jpg"}
+              src={process.env.PUBLIC_URL + "/pictures/pic1.jpg"}
               className="d-block w-100"
               alt="第一張圖片"
             />
-
-            {/* 輪播圖片上的文字 */}
-            <div className="container">
-              <div className="carousel-caption">
-                <h1>北威開幕禮</h1>
-                <p>全商城免運，讓您購物無負擔</p>
-              </div>
-            </div>
           </div>
           <div className="carousel-item">
             <img
-              src={process.env.PUBLIC_URL + "/pictures/rolex.jpg"}
+              src={process.env.PUBLIC_URL + "/pictures/pic2.jpg"}
               className="d-block w-100"
               alt="第一張圖片"
             />
-            <div className="container">
-              <div className="carousel-caption">
-                <h1>北威下單最速到貨</h1>
-                <p>與全台灣最好的物流合作，讓您節省寶貴的時間~</p>
-              </div>
-            </div>
           </div>
           <div className="carousel-item">
             <img
-              src={process.env.PUBLIC_URL + "/pictures/wedding-ring.jpg"}
+              src={process.env.PUBLIC_URL + "/pictures/pic3.jpg"}
               className="d-block w-100"
               alt="第一張圖片"
             />
-            <div className="container">
-              <div className="carousel-caption ">
-                <h1>北威精選</h1>
-                <p>無論何種價位的心意都由北威來替您傳遞</p>
-              </div>
-            </div>
           </div>
         </div>
         {/* 輪播圖片上下一頁按鈕 */}

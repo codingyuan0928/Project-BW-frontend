@@ -16,7 +16,7 @@
   .navBrand {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: flex;
     .nav-title {
       font-size: 2.2rem;
       font-weight: 800;
@@ -28,8 +28,29 @@
         color: #9f7867;
       }
     }
+    &:hover {
+      opacity: 0.5;
+      transition: opacity 0.3 ease;
+    }
   }
-
+  .nav-expansion-container {
+    display: none;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+      color: #9f7867;
+      background-color: #9f7867;
+      border-radius: 10px;
+      &:hover {
+        opacity: 0.5;
+        transition: opacity 0.3 ease;
+      }
+    }
+  }
   .nav-links {
     margin-right: 1rem;
     display: flex;
@@ -37,7 +58,6 @@
     justify-content: flex-end;
     align-items: center;
     position: relative;
-
     .d-flex {
       margin-right: 1.5rem;
       .input-group {
@@ -46,7 +66,6 @@
           width: 5vw;
           transition: width 0.4s ease-in-out;
           border-radius: 100px;
-
           color: #9f7867;
           padding-left: 1.25rem;
           &::placeholder {
@@ -89,6 +108,10 @@
       .nav-link {
         margin: 0rem 1rem;
         font-size: 1.5rem;
+        &:hover {
+          opacity: 0.5;
+          transition: opacity 0.3 ease;
+        }
         .cart {
           width: 3rem;
           height: 3rem;
@@ -101,7 +124,6 @@
           position: relative;
           top: -0.2rem;
         }
-
         .dropdown {
           position: relative;
           .dropdown-icon {
@@ -260,6 +282,9 @@
     padding-bottom: 0.2rem;
     align-items: start;
     padding-left: 1rem;
+    .nav-expansion-container {
+      display: block;
+    }
     .nav-links {
       margin-right: 0rem;
       flex-direction: column;
@@ -339,7 +364,7 @@
               .info {
                 height: 100%;
                 width: 100%;
-                color: white;
+                color: #9f7867;
                 background-color: transparent;
               }
               img {
@@ -354,7 +379,7 @@
             }
             .buyer-info {
               margin-left: 1rem;
-              color: white;
+              color: black;
               font-size: 1.35rem;
 
               p {
@@ -395,13 +420,13 @@
               .info {
                 height: 100%;
                 width: 100%;
-                color: white;
+                color: #9f7867;
                 background-color: transparent;
               }
             }
             .seller-info {
               margin-left: 1rem;
-              color: white;
+              color: black;
               font-size: 1.35rem;
               p {
                 white-space: nowrap;
@@ -416,7 +441,7 @@
         .title {
           margin-left: 0.2rem;
           font-size: 1.5rem;
-          color: white;
+          color: black;
           cursor: auto;
           border-bottom: none;
         }
@@ -434,6 +459,9 @@
     padding-left: 0;
     flex-direction: column;
     padding-bottom: 0.2rem;
+    .nav-expansion-container {
+      display: block;
+    }
     .nav-links {
       flex-direction: column;
       transform: translateX(5%);
@@ -542,7 +570,6 @@
               opacity: 1;
             }
             .avatar-area {
-              // background-color: aqua;
               border-radius: 180px;
               min-width: 15vw;
               height: 15vw;
@@ -660,7 +687,6 @@
             opacity: 1;
           }
           .avatar-area {
-            // background-color: aqua;
             border-radius: 180px;
             min-width: 8vw;
             height: 8vw;

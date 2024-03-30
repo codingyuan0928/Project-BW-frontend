@@ -16,7 +16,8 @@
         border-radius: 180px;
         border: 2px solid black;
         position: absolute;
-        top: 24.4vh;
+        top: 0;
+        left: -0.1vw;
         background-color: #636161;
         cursor: pointer;
         transform: translateX(15%);
@@ -27,9 +28,10 @@
         width: 15vw;
         height: 15vw;
         border-radius: 180px;
-        border: 2px solid black;
+        color: #9f7867;
+        border: 2px solid #9f7867;
         position: relative;
-        background-color: #636161;
+        background-color: #fdf8f2;
         display: flex;
         align-items: center;
         font-size: 1.2rem;
@@ -39,7 +41,7 @@
         transform: translateX(15%);
         padding: 0.5rem;
         border-radius: 20px;
-        background-color: black;
+        background-color: #9f7867;
         color: white;
         font-size: 1.15rem;
         padding: 0.2rem 1rem;
@@ -78,17 +80,23 @@
         width: 13.5rem;
       }
       button {
-        background-color: black;
+        background-color: #9f7867;
         color: white;
         padding: 0.4rem 3rem;
         font-weight: 500;
         font-size: 1.2rem;
         margin: 0.5rem;
         border-radius: 20px;
+        border: 1px solid#9f7867;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
         &.cancel {
           position: relative;
           right: -5vw;
           top: 0rem;
+        }
+        &:hover {
+          opacity: 0.5;
+          transition: opacity 0.3 ease;
         }
       }
     }
@@ -96,7 +104,7 @@
   .vertical-line {
     width: 2px;
     height: 135vh;
-    background-color: gray;
+    background-color: #9f7867;
     margin-top: 3rem;
   }
   .section-right {
@@ -113,7 +121,8 @@
         border-radius: 180px;
         border: 2px solid black;
         position: absolute;
-        top: 24.4vh;
+        top: 0;
+        left: -0.1vw;
         background-color: #636161;
         cursor: pointer;
       }
@@ -121,18 +130,19 @@
         width: 15vw;
         height: 15vw;
         border-radius: 180px;
-        background-color: #636161;
-        border: 2px solid black;
+        background-color: #fdf8f2;
+        border: 2px solid #9f7867;
         position: relative;
         display: flex;
         align-items: center;
         font-size: 1.2rem;
         cursor: pointer;
+        color: #9f7867;
       }
       .edit {
         margin: 0.5rem;
         border-radius: 20px;
-        background-color: black;
+        background-color: #9f7867;
         color: white;
         font-size: 1.15rem;
         padding: 0.2rem 1rem;
@@ -149,15 +159,24 @@
         margin-left: 1rem;
         width: 13rem;
       }
-      &.sell-button {
-        button {
-          margin: 0.5rem;
-          border-radius: 20px;
-          background-color: black;
-          color: white;
-          font-size: 1.15rem;
-          padding: 0.4rem 3rem;
-          font-weight: 500;
+      button {
+        background-color: #9f7867;
+        color: white;
+        padding: 0.4rem 3rem;
+        font-weight: 500;
+        font-size: 1.2rem;
+        margin: 0.5rem;
+        border-radius: 20px;
+        border: 1px solid#9f7867;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+        &.sell-button {
+          position: relative;
+          right: -5vw;
+          top: 0rem;
+        }
+        &:hover {
+          opacity: 0.5;
+          transition: opacity 0.3 ease;
         }
       }
     }
@@ -203,7 +222,7 @@
         img {
           width: 45vw;
           height: 45vw;
-          top: 3.5vh;
+          left: -0.15vw;
         }
         .avatar {
           width: 45vw;
@@ -256,7 +275,7 @@
         img {
           width: 25vw;
           height: 25vw;
-          top: 3.5vh;
+          left: -0.15vw;
         }
         .avatar {
           width: 25vw;

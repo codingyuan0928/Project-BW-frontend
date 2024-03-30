@@ -206,31 +206,31 @@ const RegisterComponent = (props) => {
       )}
       <div className="section-left">
         <div className="customer-img">
-          <div className="avatar">點選以新增買家頭像</div>
-          <img
-            ref={avatarInputRef}
-            src={
-              currentUser.buyer
-                ? currentUser.buyer.avatarUrl
-                : userData.buyer.avatarUrl
-            }
-            style={{
-              opacity: currentUser.buyer || buyerImageClicked ? 1 : 0.2,
-            }}
-            onClick={() => avatarInputRef.current.click()}
-            onChange={(e) => handleChange(e, "buyer", "avatarUrl")}
-            disabled={buyerInputDisabled}
-          />
-
-          <input
-            type="file"
-            ref={avatarInputRef}
-            accept=".jpg, .png, .svg"
-            onChange={handleFileSelect}
-            style={{ display: "none" }}
-            disabled={buyerInputDisabled}
-          />
-
+          <div className="avatar">
+            點選以新增買家頭像
+            <img
+              ref={avatarInputRef}
+              src={
+                currentUser.buyer
+                  ? currentUser.buyer.avatarUrl
+                  : userData.buyer.avatarUrl
+              }
+              style={{
+                opacity: currentUser.buyer || buyerImageClicked ? 1 : 0,
+              }}
+              onClick={() => avatarInputRef.current.click()}
+              onChange={(e) => handleChange(e, "buyer", "avatarUrl")}
+              disabled={buyerInputDisabled}
+            />
+            <input
+              type="file"
+              ref={avatarInputRef}
+              accept=".jpg, .png, .svg"
+              onChange={handleFileSelect}
+              style={{ display: "none" }}
+              disabled={buyerInputDisabled}
+            />
+          </div>
           {currentUser.buyer ? (
             <button className="edit">
               {buyerInputDisabled ? "鎖定中 🔒" : "可編輯 🔓"}
@@ -372,25 +372,27 @@ const RegisterComponent = (props) => {
 
       <div className="section-right">
         <div className="seller-img">
-          <div className="avatar">點選以新增賣家頭像</div>
-          <img
-            ref={sellerAvatarInputRef}
-            src={userData.seller.sellerAvatarUrl}
-            style={{
-              opacity: sellerImageClicked ? 1 : 0.2,
-            }}
-            onClick={() => sellerAvatarInputRef.current.click()}
-            onChange={(e) => handleChange(e, "seller", "sellerAvatarUrl")}
-            disabled={sellerInputDisabled}
-          />
-          <input
-            type="file"
-            ref={sellerAvatarInputRef}
-            accept=".jpg, .png, .svg"
-            onChange={handleSellerFileSelect}
-            style={{ display: "none" }}
-            disabled={sellerInputDisabled}
-          />
+          <div className="avatar">
+            點選以新增賣家頭像
+            <img
+              ref={sellerAvatarInputRef}
+              src={userData.seller.sellerAvatarUrl}
+              style={{
+                opacity: sellerImageClicked ? 1 : 0,
+              }}
+              onClick={() => sellerAvatarInputRef.current.click()}
+              onChange={(e) => handleChange(e, "seller", "sellerAvatarUrl")}
+              disabled={sellerInputDisabled}
+            />
+            <input
+              type="file"
+              ref={sellerAvatarInputRef}
+              accept=".jpg, .png, .svg"
+              onChange={handleSellerFileSelect}
+              style={{ display: "none" }}
+              disabled={sellerInputDisabled}
+            />
+          </div>
           <button className="edit" onClick={handleSellerInputDeactivateClick}>
             {sellerInputDisabled ? "鎖定中 🔒" : "可編輯 🔓"}
           </button>

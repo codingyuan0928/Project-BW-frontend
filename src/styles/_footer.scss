@@ -1,5 +1,5 @@
 .footer {
-  background-color: #d9d9d9;
+  background-color: #9f7867;
   padding-top: 2rem;
   margin-top: 0.5rem;
   .footer-container {
@@ -24,27 +24,32 @@
           a {
             text-decoration: none;
             color: black;
+            transition: opacity 0.3 ease;
+            &:hover {
+              opacity: 0.5;
+              color: white;
+            }
           }
           i.fb {
             font-size: 1.5rem;
             margin-right: 0.5rem;
             display: inline;
             vertical-align: middle;
-            color: blue;
+            color: black;
           }
           i.ig {
             font-size: 1.5rem;
             margin-right: 0.5rem;
             display: inline;
             vertical-align: middle;
-            color: red;
+            color: black;
           }
           i.line {
             font-size: 1.5rem;
             margin-right: 0.5rem;
             display: inline;
             vertical-align: middle;
-            color: rgb(1, 183, 1);
+            color: black;
           }
           .h6 {
             display: inline;
@@ -68,6 +73,10 @@
           a {
             text-decoration: none;
             color: black;
+            &:hover {
+              opacity: 0.5;
+              color: white;
+            }
           }
           .help {
             font-size: 1.5rem;
@@ -107,6 +116,10 @@
               a {
                 text-decoration: none;
                 color: black;
+                &:hover {
+                  opacity: 0.5;
+                  color: white;
+                }
               }
               .apple {
                 font-size: 1.5rem;
@@ -117,6 +130,7 @@
               img.playstore {
                 width: 2rem;
                 height: 1.5rem;
+                color: black;
               }
               .h6 {
                 display: inline;

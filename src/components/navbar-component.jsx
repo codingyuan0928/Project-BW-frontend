@@ -8,6 +8,7 @@ import authService from "../services/auth.service";
 const NavBar = (props) => {
   const history = useHistory();
   const [isHovered, setIsHovered] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const {
     currentUser,
     setCurrentUser,
@@ -31,6 +32,19 @@ const NavBar = (props) => {
       setAvatar(currentUser.buyer.avatarUrl);
     }
   }, [currentUser]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsExpanded(window.innerWidth >= 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    // 組件卸載時取消事件監聽器
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   const handleHover = () => {
     setIsHovered(true);
   };
@@ -71,6 +85,10 @@ const NavBar = (props) => {
     setHasMoreProducts(true);
     console.log("已重新導向首頁");
   };
+  //navbar展開
+  const navbarExpansionHandler = () => {
+    setIsExpanded((prevValue) => !prevValue);
+  };
   return (
     <nav className="nav-container">
       <div className="navBrand">
@@ -80,8 +98,16 @@ const NavBar = (props) => {
           </Link>
         </div>
       </div>
-
-      <div className="nav-links">
+      <div className="nav-expansion-container" onClick={navbarExpansionHandler}>
+        <img src={process.env.PUBLIC_URL + "/logos/nav-expansion.svg"} alt="" />
+      </div>
+      <div
+        className="nav-links"
+        style={{
+          display: isExpanded ? "flex" : "none",
+          // transition: "display 10s ease",
+        }}
+      >
         <div>
           <SearchComponent
             setInput={setInput}

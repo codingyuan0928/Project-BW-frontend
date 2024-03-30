@@ -19,7 +19,6 @@
       .link {
         text-decoration: none;
         color: black;
-        // background-color: rgb(240, 139, 7);
         padding: 0.5rem;
         &.activate {
           background-color: orange;
@@ -80,7 +79,7 @@
       top: 0rem;
       margin-bottom: 0.5rem;
       box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-      z-index: 2;
+      z-index: 1;
       .little-nav {
         border: 2px solid black;
         height: 10vh;

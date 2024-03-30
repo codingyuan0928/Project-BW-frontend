@@ -68,24 +68,20 @@
 }
 @media screen and (max-width: 480px) {
   .login-page {
+    background-image: url(../../public/pictures/login-background/cell-login-pic.jpg);
     justify-content: center;
     flex-wrap: wrap;
+    height: 80vh;
     .sec-left {
       .bw-slogan {
+        display: none;
         width: 80vw;
-        position: absolute;
-        left: 3vw;
-        top: 50rem;
-
-        .p {
-          font-size: 1.8rem;
-          margin: 2rem;
-        }
       }
     }
     .sec-right {
       position: relative;
       right: 0vw;
+      top: 4rem;
       .login-area {
         width: 80vw;
         .form-signin {
@@ -103,7 +99,7 @@
         width: 80vw;
         position: absolute;
         left: 4vw;
-        top: 40rem;
+        top: 25rem;
 
         .p {
           font-size: 2.5rem;

@@ -47,7 +47,7 @@ const LoginComponent = (props) => {
       });
   };
   return (
-    <div style={{ height: "100vh" }} className="login-page">
+    <div className="login-page">
       <div className="sec-left">
         <div className="bw-slogan">
           <p className="p">BEST WAY IS TO SHOP HERE</p>

@@ -7,7 +7,6 @@ const UpdateProductsComponent = (props) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
   const [productsData, setProductsData] = useState({
-    imgUrl: "",
     title: "",
     categories: "",
     description: "",
@@ -28,23 +27,13 @@ const UpdateProductsComponent = (props) => {
 
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
-
     if (file) {
       setSelectedFile(file);
-      const reader = new FileReader();
-      reader.onload = () => {
-        const base64String = reader.result;
-        setPreviewImage(base64String);
-        // 更新 imgUrl
-        setProductsData((prevProductsData) => ({
-          ...prevProductsData,
-          imgUrl: base64String,
-        }));
-      };
-      reader.readAsDataURL(file);
     }
   };
-
+  useEffect(() => {
+    console.log("更新後的selectedFile:", selectedFile);
+  }, [selectedFile]);
   const openFileDialog = () => {
     document.getElementById("fileInput").click();
   };
@@ -54,15 +43,15 @@ const UpdateProductsComponent = (props) => {
       const shopname = currentUser?.seller?.shopname;
 
       if (shopname) {
-        await productsService.post(
-          productsData.imgUrl,
-          productsData.title,
-          productsData.categories,
-          productsData.description,
-          productsData.inventory,
-          productsData.price,
-          shopname
-        );
+        const formData = new FormData();
+        formData.append("file", selectedFile);
+        formData.append("title", productsData.title);
+        formData.append("categories", productsData.categories);
+        formData.append("description", productsData.description);
+        formData.append("inventory", productsData.inventory);
+        formData.append("price", productsData.price);
+        formData.append("shopname", shopname);
+        await productsService.post(formData);
 
         window.alert("新商品已儲存成功");
         history.push("/profile");
@@ -76,12 +65,6 @@ const UpdateProductsComponent = (props) => {
     }
   };
 
-  // 使用 useEffect 監聽 productsData 的變化，只有在 productsData 變化時才進行 post 操作
-  useEffect(() => {
-    if (productsData.shopname) {
-      postProducts();
-    }
-  }, [productsData, currentUser, history]);
   return (
     <div className="update-product-page">
       {message && (

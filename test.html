@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Test</title>
+  </head>
+  <body>
+    <h2>Upload Test</h2>
+
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="file" name="file" id="fileInput" />
+      <button type="submit">Upload</button>
+    </form>
+
+    <script>
+      document
+        .getElementById("uploadForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const fileInput = document.getElementById("fileInput");
+          const file = fileInput.files[0];
+
+          if (!file) {
+            alert("Please select a file.");
+            return;
+          }
+
+          const formData = new FormData();
+          formData.append("file", file);
+
+          // const formDataObject = {};
+          // for (const [key, value] of formData.entries()) {
+          //   formDataObject[key] = value;
+          // }
+          // console.log(formDataObject);
+          try {
+            const auth =
+              "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWQxYzdkNTI5YjE5MDMyYmY2ZmM3YzAiLCJlbWFpbCI6InBpa2FjaHVAZ21haWwuY29tIiwiaWF0IjoxNzExOTYxNjY2fQ.Zjr9cdeOYf98aMcjaOdzrb2ChasDc7P_dHIPWARNzlk";
+            const headers = new Headers();
+            headers.append("Authorization", auth);
+            const response = await fetch("http://localhost:8080/api/products", {
+              method: "POST",
+              body: formData,
+              headers: headers,
+            });
+
+            if (!response.ok) {
+              throw new Error("Upload failed: " + response.status);
+            }
+
+            const result = await response.json();
+            console.log("Uploaded URL:", result.uploadedUrl);
+          } catch (error) {
+            console.error("Upload error:", error);
+          }
+        });
+    </script>
+  </body>
+</html>

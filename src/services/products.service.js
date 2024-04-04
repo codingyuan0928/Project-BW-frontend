@@ -1,26 +1,19 @@
 import axios from "axios";
 
-const API_URL = "https://backend-app-igahudbo5a-de.a.run.app/api/products";
+const API_URL = "http://localhost:8080/api/products";
 const user = localStorage.getItem("user");
 const auth = user
   ? JSON.parse(user).token
   : "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWI5MjQ1Mjc5ZjMwODlhYTMyNzhmMzgiLCJlbWFpbCI6Imd1ZXN0MDAxQGZha2UuY29tIiwiaWF0IjoxNzA2NjMyMjk3fQ.AXIP_XZJgsQTYYuFa7TuXQMj-2VV1O-acnf9HlaNs1E";
 
 class ProductService {
-  post(imgUrl, title, categories, description, inventory, price, shopname) {
-    return axios.post(
-      API_URL,
-      {
-        imgUrl,
-        title,
-        categories,
-        description,
-        inventory,
-        price,
-        shopname,
+  post(formData) {
+    return axios.post(API_URL, formData, {
+      headers: {
+        Authorization: auth,
+        "Content-Type": "multipart/form-data",
       },
-      { headers: { Authorization: auth } }
-    );
+    });
   }
   patch(buyerId, productId, quantity) {
     return axios.patch(

@@ -21,9 +21,8 @@ const App = () => {
   let [currentSearch, setCurrentSearch] = useState("");
   let [quantity, setQuantity] = useState(1);
   let [hasMoreProducts, setHasMoreProducts] = useState(true);
-  const initialUrl =
-    "https://backend-app-igahudbo5a-de.a.run.app/api/products?page=1&per_page=15";
-  const searchUrl = `https://backend-app-igahudbo5a-de.a.run.app/api/products/findByName/${currentSearch}?page=1&per_page=15`;
+  const initialUrl = "http://localhost:8080/api/products?page=1&per_page=15";
+  const searchUrl = `http://localhost:8080/api/products/findByName/${currentSearch}?page=1&per_page=15`;
 
   // fetch data from restful api
   const search = async (url, callback) => {
@@ -58,9 +57,9 @@ const App = () => {
     console.log("button clicked");
     let newUrl;
     if (input === "") {
-      newUrl = `https://backend-app-igahudbo5a-de.a.run.app/api/products?page=${page}&per_page=15`;
+      newUrl = `http://localhost:8080/api/products?page=${page}&per_page=15`;
     } else {
-      newUrl = `https://backend-app-igahudbo5a-de.a.run.app/api/products/findByName/${currentSearch}?page=${page}&per_page=15`;
+      newUrl = `http://localhost:8080/api/products/findByName/${currentSearch}?page=${page}&per_page=15`;
     }
     setPage(page + 1);
     try {
@@ -93,7 +92,7 @@ const App = () => {
   //點選不同種類商品
   const handleDifCatProducts = (category) => {
     setData(null);
-    const catUrl = `https://backend-app-igahudbo5a-de.a.run.app/api/products/${category}?page=1&per_page=15`;
+    const catUrl = `http://localhost:8080/api/products/${category}?page=1&per_page=15`;
     search(catUrl, (filteredData) => {
       setData(filteredData);
     });
@@ -105,7 +104,7 @@ const App = () => {
       "user",
       JSON.stringify({
         token:
-          "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWI5MjQ1Mjc5ZjMwODlhYTMyNzhmMzgiLCJlbWFpbCI6Imd1ZXN0MDAxQGZha2UuY29tIiwiaWF0IjoxNzA2NjMyMjk3fQ.AXIP_XZJgsQTYYuFa7TuXQMj-2VV1O-acnf9HlaNs1E",
+          "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBmZGQ5NzgyZTlhMzJkYmQ1N2U3MjgiLCJlbWFpbCI6Imd1ZXN0MDAxQGZha2UuY29tIiwiaWF0IjoxNzEyMzE1ODE2fQ.EwnbMEgqkZpW80Jse2c9-OYz29Nx3zKmjII2AVblr7A",
       })
     );
 

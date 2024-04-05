@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://backend-app-igahudbo5a-de.a.run.app/api/user";
+const API_URL = "http://localhost:8080/api/user";
 
 class AuthService {
   login(email, password) {
@@ -12,7 +12,7 @@ class AuthService {
       "user",
       JSON.stringify({
         token:
-          "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWI5MjQ1Mjc5ZjMwODlhYTMyNzhmMzgiLCJlbWFpbCI6Imd1ZXN0MDAxQGZha2UuY29tIiwiaWF0IjoxNzA2NjMyMjk3fQ.AXIP_XZJgsQTYYuFa7TuXQMj-2VV1O-acnf9HlaNs1E",
+          "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBmZGQ5NzgyZTlhMzJkYmQ1N2U3MjgiLCJlbWFpbCI6Imd1ZXN0MDAxQGZha2UuY29tIiwiaWF0IjoxNzEyMzE1ODE2fQ.EwnbMEgqkZpW80Jse2c9-OYz29Nx3zKmjII2AVblr7A",
       })
     );
   }

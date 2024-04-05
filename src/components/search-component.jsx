@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useHistory } from "react-router-dom";
 import { IoSearch } from "react-icons/io5";
 
 const SearchComponent = (props) => {
   const { setInput, input, search, searchUrl, setCurrentSearch } = props;
-
+  const history = useHistory();
   const inputHandler = (e) => {
     setInput(e.target.value);
   };
 
   const handleSearch = () => {
+    history.push("/");
     if (input !== "") {
       setCurrentSearch(input);
       search(searchUrl);

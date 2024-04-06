@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/carts";
+const API_URL = "https://backend-app-igahudbo5a-de.a.run.app/api/carts";
 
 class CartsService {
   post(userId, shopname, productId, quantity, price) {

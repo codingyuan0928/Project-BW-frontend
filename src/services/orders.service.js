@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api/orders";
+const API_URL = "https://backend-app-igahudbo5a-de.a.run.app/api/orders";
 
 class OrdersService {
   async createOrder(buyer, products, totalAmount, status) {
